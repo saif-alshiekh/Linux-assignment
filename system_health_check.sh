@@ -2,7 +2,7 @@
 
 # Define variables
 LOG_FILE="/var/log/system_health_check.log"
-TIMESTAMP=$(date +"%Y-%m-%d_(%H:%M)")
+TIMESTAMP=$(date +"%Y-%m-%d_(%H:%M:%S)")
 REPORT_FILE="/var/log/health_report_${TIMESTAMP}.txt"
 
 
@@ -18,7 +18,7 @@ df -h | tee -a $REPORT_FILE
 
 # Network performance check
 log_message "Checking network performance..."| tee -a $REPORT_FILE
-ping -c 4 google.com | tee -a $REPORT_FILE
+ping -c 5 google.com | tee -a $REPORT_FILE
 
 
 # Memory usage check
