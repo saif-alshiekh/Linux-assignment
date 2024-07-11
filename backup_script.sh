@@ -31,7 +31,6 @@ tar -czf - $BACKUP_SRC | openssl enc -aes-256-cbc -e -out $BACKUP_FILE -pass pas
 if [ $? -eq 0 ]; then
     BACKUP_SIZE=$(du -sh $BACKUP_FILE | cut -f1)
     log_message "Backup successful: $BACKUP_FILE (Size: $BACKUP_SIZE)"
-    echo "Backup successful: $BACKUP_FILE (Size: $BACKUP_SIZE)" 
 else
     log_message "ERROR: Backup failed for $BACKUP_SRC."
     echo "Backup failed: $BACKUP_SRC." 
